@@ -1,12 +1,12 @@
 using WorldDumper.Formats;
 namespace WorldDumper.Dumpers;
 
-public static class ItemDumper
+public static class ItemObjectDumper
 {
-    public static void Dump(Item obj, string prefix)
+    public static void Dump(Item_Object obj, string prefix)
     {
-        Item it = obj;
-        ItemFormat f = new()
+        Item it = obj.itemData;
+        ItemObjectFormat f = new()
         {
             ItemName = it.itemName,
             ItemTag = it.itemTag,

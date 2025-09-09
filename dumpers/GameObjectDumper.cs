@@ -7,7 +7,12 @@ public static class GameObjectDumper
 {
     public static void Dump(GameObject obj, string prefix)
     {
-        GameObjectFormat f = new()
+        Jsonl.Jsonler.Dump(Get(obj), prefix);
+    }
+
+    public static GameObjectFormat Get(GameObject obj)
+    {
+        return new()
         {
             InstanceId = obj.GetInstanceID(),
             Name = obj.name,
@@ -17,9 +22,8 @@ public static class GameObjectDumper
             Position = obj.transform.position,
             SiblingIdx = obj.transform.GetSiblingIndex(),
         };
-        Jsonl.Jsonler.Dump(f, prefix);
     }
-    
+
     private static string GetPath(Transform t)
     {
         System.Text.StringBuilder sb = new(t.name);

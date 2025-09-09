@@ -5,14 +5,12 @@ using WorldDumper.Dumpers;
 namespace WorldDumper.Patches;
 
 
-[HarmonyPatch(typeof(Item_Object), "Start")]
-public static class Item_Object_Start_Patcher
+[HarmonyPatch(typeof(Item), "GetClone")]
+public static class Item_GetClone_Patcher
 {
     [HarmonyPostfix]
-    public static void Dump(Item_Object __instance)
+    public static void Dump(Item __instance, Item __result)
     {
-        // try { AsIsDumper.Dump(__instance.GetSaveInfo(), "Item_Object_Start_"); } catch (Exception e) { WorldDumperPlugin.Beep.LogError($"Item_Object_Start_Patcher: {e}"); }
-        try { ItemDumper.Dump(__instance, "Item_Object_Start_"); } catch (Exception e) { WorldDumperPlugin.Beep.LogError($"Item_Object_Start_Patcher: {e}"); }
-
+        try { ItemDumper.Dump(__result, "Item_GetClone_"); } catch (Exception e) { WorldDumperPlugin.Beep.LogError($"Item_GetClone_Patcher: {e}"); }
     }
 }
