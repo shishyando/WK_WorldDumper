@@ -3,28 +3,21 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Text;
 using System.Threading;
-using UnityEngine;
-using WorldDumper.Formats;
+using Newtonsoft.Json;
 
 namespace WorldDumper.Jsonl;
 
 public static class Jsonler
 {
 private static readonly ConcurrentDictionary<string, Lazy<TextWriter>> Writers = new();
+private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore, Formatting = Formatting.None, NullValueHandling = NullValueHandling.Include };
 
 public static void Dump<T>(T data, string prefix)
 {
     if (data == null) return;
     var path = Path.Combine(WorldDumperPlugin.LogsDir.Value, prefix + typeof(T).Name + ".jsonl");
-    if (typeof(T) == typeof(VendingMachineFormat))
-    {
-        VendingMachineFormat f = (VendingMachineFormat)(object)data;
-        foreach (VendingPurchaseFormat x in f.PurchaseArray) {
-            WorldDumperPlugin.Beep.LogInfo($"Writing: PURCHASES {JsonUtility.ToJson(x)}");
-        }
-        WorldDumperPlugin.Beep.LogInfo($"Writing: {prefix + typeof(T).Name} :: {JsonUtility.ToJson(data)}");
-    }
-    WriteLine(path, JsonUtility.ToJson(data));
+    var json = JsonConvert.SerializeObject(data, SerializerSettings);
+    WriteLine(path, json);
 }
 
 private static void WriteLine(string path, string line)

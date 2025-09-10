@@ -14,22 +14,6 @@ public static class VendingMachineDumper
 
     public static void Dump(ENV_VendingMachine vendo, string prefix)
     {
-        if (vendo.transform == null) {
-            WorldDumperPlugin.Beep.LogWarning("vendo.transform is null");
-        }
-        if (vendo.gameObject == null) {
-            WorldDumperPlugin.Beep.LogWarning("vendo.gameobject is null");
-        }
-
-        LevelFormat lvl = LevelDumper.LevelOf(vendo.transform);
-        if (lvl == null) {
-            WorldDumperPlugin.Beep.LogWarning("vendo lvl is null");
-        }
-        GameObjectFormat obj = GameObjectDumper.Get(vendo.gameObject);
-        if (obj == null) {
-            WorldDumperPlugin.Beep.LogWarning("vendo obj is null");
-        }
-
         WorldDumperPlugin.Beep.LogWarning($"vendo len {vendo.buttons.Length}, {string.Join("; ", Array.ConvertAll(vendo.buttons, x => { return x.purchase.name; }))}");
 
         VendingPurchaseFormat[] purchases = Array.ConvertAll(vendo.buttons, GetPurchase);
@@ -38,7 +22,6 @@ public static class VendingMachineDumper
             WorldDumperPlugin.Beep.LogInfo($"dumping purchase: {JsonUtility.ToJson(x)}");
         }
 
-
         VendingMachineFormat f = new()
         {
             VendorId = vendo.vendorId,
@@ -46,8 +29,8 @@ public static class VendingMachineDumper
             LocalSeed = localSeedRef(vendo),
             SpawnSpot = vendo.spawnSpot.position,
             RandomGeneration = vendo.randomGeneration,
-            // Level = LevelDumper.LevelOf(vendo.transform),
-            // GameObject = GameObjectDumper.Get(vendo.gameObject),
+            Level = LevelDumper.LevelOf(vendo.transform),
+            GameObject = GameObjectDumper.Get(vendo.gameObject),
         };
         foreach (var x in f.PurchaseArray)
         {
@@ -62,7 +45,7 @@ public static class VendingMachineDumper
         {
             Name = button.purchase.name,
             Chance = button.purchase.chance,
-            // Item = ItemObjectDumper.Get(button.purchase.itemObject),
+            Item = ItemObjectDumper.Get(button.purchase.itemObject),
             Price = button.purchase.price,
         };
     }

@@ -9,7 +9,7 @@ public static class LevelDumper
     public static readonly AccessTools.FieldRef<M_Level, bool> flippedRef = AccessTools.FieldRefAccess<M_Level, bool>("flipped");
 
     public static void Dump(M_Level lvl, string prefix)
-    {   
+    {
         Jsonl.Jsonler.Dump(Get(lvl), prefix);
     }
 
@@ -29,7 +29,8 @@ public static class LevelDumper
 
     public static LevelFormat LevelOf(Transform tr)
     {
+        if (tr == null) return new();
         M_Level parent = tr.GetComponentInParent<M_Level>(true);
-        return parent ? Get(parent) : new();
+        return parent != null ? Get(parent) : new();
     }
 }

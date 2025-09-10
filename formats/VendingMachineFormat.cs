@@ -9,7 +9,7 @@ public class VendingPurchaseFormat
 {
     public string Name;
     public float Chance;
-    // public ItemObjectFormat Item;
+    public ItemObjectFormat Item;
     public int Price;
 }
 
@@ -21,6 +21,6 @@ public class VendingMachineFormat
     public int LocalSeed;
     public Vector3 SpawnSpot;
     public bool RandomGeneration;
-    // public LevelFormat Level;
-    // public GameObjectFormat GameObject;
+    public LevelFormat Level;
+    public GameObjectFormat GameObject;
 }

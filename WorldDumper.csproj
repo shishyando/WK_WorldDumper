@@ -26,7 +26,8 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.32" IncludeAssets="compile" />
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3"
+      PrivateAssets="all" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
   </ItemGroup>
@@ -38,6 +39,10 @@
     </Reference>
     <Reference Include="ALINE">
       <HintPath>lib\ALINE.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
@@ -56,7 +61,8 @@
   </Target>
 
   <Target Name="ThunderstorePackage" AfterTargets="Build">
-    <Exec Command='python "$(ProjectDir)thunderstore.py" --out "$(ZipOutputPath)" --readme "$(ProjectDir)README.md" --manifest "$(ProjectDir)manifest.json" --icon "$(ProjectDir)img\icon.png" --dll "$(TargetPath)"' />
+    <Exec
+      Command='python "$(ProjectDir)thunderstore.py" --out "$(ZipOutputPath)" --readme "$(ProjectDir)README.md" --manifest "$(ProjectDir)manifest.json" --icon "$(ProjectDir)img\icon.png" --dll "$(TargetPath)"' />
   </Target>
 
 </Project>
