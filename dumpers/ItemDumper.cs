@@ -3,15 +3,13 @@ namespace WorldDumper.Dumpers;
 
 public static class ItemDumper
 {
-    public static void Dump(Item obj, string prefix)
+    public static void Dump(Item it, string prefix)
     {
-        Item it = obj;
         ItemFormat f = new()
         {
             ItemName = it.itemName,
             ItemTag = it.itemTag,
             PrefabName = it.prefabName,
-            GameObject = GameObjectDumper.Get(obj.gameObject),
         };
         Jsonl.Jsonler.Dump(f, prefix);
     }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using UnityEngine;
+using WorldDumper.Formats;
 
 namespace WorldDumper.Jsonl;
 
@@ -15,7 +16,15 @@ public static void Dump<T>(T data, string prefix)
 {
     if (data == null) return;
     var path = Path.Combine(WorldDumperPlugin.LogsDir.Value, prefix + typeof(T).Name + ".jsonl");
-    WriteLine(path, JsonUtility.ToJson(data, prettyPrint: false));
+    if (typeof(T) == typeof(VendingMachineFormat))
+    {
+        VendingMachineFormat f = (VendingMachineFormat)(object)data;
+        foreach (VendingPurchaseFormat x in f.PurchaseArray) {
+            WorldDumperPlugin.Beep.LogInfo($"Writing: PURCHASES {JsonUtility.ToJson(x)}");
+        }
+        WorldDumperPlugin.Beep.LogInfo($"Writing: {prefix + typeof(T).Name} :: {JsonUtility.ToJson(data)}");
+    }
+    WriteLine(path, JsonUtility.ToJson(data));
 }
 
 private static void WriteLine(string path, string line)

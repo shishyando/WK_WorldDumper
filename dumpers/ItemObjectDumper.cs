@@ -5,14 +5,17 @@ public static class ItemObjectDumper
 {
     public static void Dump(Item_Object obj, string prefix)
     {
-        Item it = obj.itemData;
-        ItemObjectFormat f = new()
-        {
-            ItemName = it.itemName,
-            ItemTag = it.itemTag,
-            PrefabName = it.prefabName,
-            GameObject = GameObjectDumper.Get(obj.gameObject),
+        Jsonl.Jsonler.Dump(Get(obj), prefix);
+    }
+
+    public static ItemObjectFormat Get(Item_Object it)
+    {
+        return new() {
+            ItemName = it.itemData.itemName,
+            ItemTag = it.itemData.itemTag,
+            PrefabName = it.itemData.prefabName,
+            GameObject = GameObjectDumper.Get(it.gameObject),
+            Level = LevelDumper.LevelOf(it.transform)
         };
-        Jsonl.Jsonler.Dump(f, prefix);
     }
 }

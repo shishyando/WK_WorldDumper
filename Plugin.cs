@@ -25,13 +25,10 @@ public class WorldDumperPlugin : BaseUnityPlugin
         LogsDir = Config.Bind("Logging", "Directory", Path.Combine(Paths.BepInExRootPath, $"{MyPluginInfo.PLUGIN_NAME}Output"), $"Directory for {MyPluginInfo.PLUGIN_NAME} logs");
         try
         {
-            DirectoryInfo cur = Directory.CreateDirectory(LogsDir.Value);
             string old = LogsDir.Value + "_old";
-            Directory.CreateDirectory(old);
-            foreach (FileInfo file in cur.GetFiles())
-            {
-                file.CopyTo(Path.Combine(old, file.Name));
-            }
+            if (Directory.Exists(old)) Directory.Delete(old, true);
+            if (Directory.Exists(LogsDir.Value)) Directory.Move(LogsDir.Value, old);
+            Directory.CreateDirectory(LogsDir.Value);
         }
         catch (Exception e)
         {

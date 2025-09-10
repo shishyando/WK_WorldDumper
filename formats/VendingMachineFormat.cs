@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Numerics;
+using UnityEngine;
 
 namespace WorldDumper.Formats;
 
@@ -9,8 +9,7 @@ public class VendingPurchaseFormat
 {
     public string Name;
     public float Chance;
-    public ItemFormat Item;
-    public List<GameObjectFormat> spawnAssets;
+    // public ItemObjectFormat Item;
     public int Price;
 }
 
@@ -18,10 +17,10 @@ public class VendingPurchaseFormat
 public class VendingMachineFormat
 {
     public string VendorId;
-    public List<VendingPurchaseFormat> PurchaseList;
+    public VendingPurchaseFormat[] PurchaseArray;
     public int LocalSeed;
     public Vector3 SpawnSpot;
     public bool RandomGeneration;
-    public LevelFormat Level;
-    public GameObjectFormat GameObject;
+    // public LevelFormat Level;
+    // public GameObjectFormat GameObject;
 }
