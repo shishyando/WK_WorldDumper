@@ -1,0 +1,28 @@
+{
+    "PrefabName": "Item_RebarRope",
+    "ItemName": "Rebar",
+    "ItemTag": "rebar",
+    "Level": {
+        "InstanceId": -39054,
+        "LevelName": "M1_Silos_Storage_11",
+        "RegionName": "silos",
+        "SubregionName": "Deep Storage",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 1999,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Item_RebarRope",
+        "Active": true,
+        "ParentName": "Items",
+        "Path": "Campaign-root/World_Root(Clone)/M1_Silos_Storage_11(Clone)/Entities (1)/Items/Item_RebarRope",
+        "Position": {
+            "x": 9.245653,
+            "y": 93.28429,
+            "z": -2.48516417
+        },
+        "SiblingIdx": 0
+    }
+}

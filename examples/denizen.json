@@ -1,0 +1,33 @@
+{
+    "EntityID": "Denizen_Bloodbug",
+    "EntityType": "bloodbug",
+    "Tag": "Denizen",
+    "Position": {
+        "x": -0.164804012,
+        "y": 723.070251,
+        "z": 105.436058
+    },
+    "Level": {
+        "InstanceId": -61854,
+        "LevelName": "M2_Pipeworks_Drainage_05",
+        "RegionName": "pipeworks",
+        "SubregionName": "Drainage System",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 9991,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Denizen_Bloodbug(Clone)",
+        "Active": true,
+        "ParentName": "Entities",
+        "Path": "Campaign-root/World_Root(Clone)/M2_Pipeworks_Drainage_05(Clone)/Entities/Denizen_Bloodbug(Clone)",
+        "Position": {
+            "x": -0.164804012,
+            "y": 723.070251,
+            "z": 105.436058
+        },
+        "SiblingIdx": 0
+    }
+}
