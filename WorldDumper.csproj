@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <BepInExPluginGuid>shishyando.WK.WorldDumper</BepInExPluginGuid>
+    <BepInExPluginName>WorldDumper</BepInExPluginName>
+    <Version>0.3.0</Version>
+    <Description>More console commands for White Knuckle</Description>
+    <PluginUrl>https://github.com/shishyando/WK_WorldDumper</PluginUrl>
+    <DependenciesJson>["BepInEx-BepInExPack-5.4.2100"]</DependenciesJson>
+    <ManifestOutput>$(ProjectDir)manifest.json</ManifestOutput>
+    <ZipOutputPath>$(ProjectDir)thunderstore.zip</ZipOutputPath>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2022.3.32" IncludeAssets="compile" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3"
+      PrivateAssets="all" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>lib\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ALINE">
+      <HintPath>lib\ALINE.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="GenerateManifest" AfterTargets="Build">
+    <ItemGroup>
+      <_Manifest Include="{" />
+      <_Manifest Include='  "name": "$(BepInExPluginName)",' />
+      <_Manifest Include='  "version_number": "$(BepInExPluginVersion)",' />
+      <_Manifest Include='  "website_url": "$(PluginUrl)",' />
+      <_Manifest Include='  "description": "$(Description)",' />
+      <_Manifest Include='  "dependencies": $(DependenciesJson)' />
+      <_Manifest Include="}" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(ManifestOutput)" Lines="@(_Manifest)" Overwrite="true" />
+  </Target>
+
+  <Target Name="ThunderstorePackage" AfterTargets="Build">
+    <Exec
+      Command='python "$(ProjectDir)thunderstore.py" --out "$(ZipOutputPath)" --readme "$(ProjectDir)README.md" --manifest "$(ProjectDir)manifest.json" --icon "$(ProjectDir)img\icon.png" --dll "$(TargetPath)"' />
+  </Target>
+
+</Project>
