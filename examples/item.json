@@ -3,7 +3,7 @@
     "ItemName": "Rebar",
     "ItemTag": "rebar",
     "Level": {
-        "InstanceId": -39054,
+        "InstanceId": 0,
         "LevelName": "M1_Silos_Storage_11",
         "RegionName": "silos",
         "SubregionName": "Deep Storage",

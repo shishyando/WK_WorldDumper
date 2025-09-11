@@ -25,7 +25,7 @@ Log everything in White Knuckle world.
         "z": 105.436058
     },
     "Level": {
-        "InstanceId": -61854,
+        "InstanceId": 0,
         "LevelName": "M2_Pipeworks_Drainage_05",
         "RegionName": "pipeworks",
         "SubregionName": "Drainage System",
@@ -64,7 +64,7 @@ Log everything in White Knuckle world.
     "ItemName": "Rebar",
     "ItemTag": "rebar",
     "Level": {
-        "InstanceId": -39054,
+        "InstanceId": 0,
         "LevelName": "M1_Silos_Storage_11",
         "RegionName": "silos",
         "SubregionName": "Deep Storage",
@@ -122,7 +122,7 @@ Log everything in White Knuckle world.
         "z": 32.9430847
     },
     "Level": {
-        "InstanceId": -57772,
+        "InstanceId": 0,
         "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
         "RegionName": "pipeworks",
         "SubregionName": "Ventilation",
@@ -171,7 +171,7 @@ Log everything in White Knuckle world.
     "LocalSeed": 8992,
     "RandomGeneration": true,
     "Level": {
-        "InstanceId": -57772,
+        "InstanceId": 0,
         "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
         "RegionName": "pipeworks",
         "SubregionName": "Ventilation",
