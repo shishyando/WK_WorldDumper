@@ -11,6 +11,6 @@ public static class M_Level_Initialize_Patcher
     [HarmonyPostfix]
     public static void Dump(M_Level __instance)
     {
-        try { LevelDumper.Dump(__instance, "M_Level_Initialize_"); } catch (Exception e) { WorldDumperPlugin.Beep.LogError($"M_Level_Initialize_Patcher: {e}"); }
+        if (WorldDumperPlugin.Playing) LevelDumper.Dump(__instance, "M_Level_Initialize");
     }
 }

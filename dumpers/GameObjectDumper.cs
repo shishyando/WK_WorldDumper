@@ -14,13 +14,13 @@ public static class GameObjectDumper
     {
         return new()
         {
-            InstanceId = obj.GetInstanceID(),
+            InstanceId = WorldDumperPlugin.LogGameObjectIds.Value ? obj.GetInstanceID() : 0,
             Name = obj.name,
             Active = obj.activeSelf,
             ParentName = obj.transform.parent?.gameObject?.name ?? "<root>",
             Path = GetPath(obj.transform),
-            Position = obj.transform.position,
-            SiblingIdx = obj.transform.GetSiblingIndex(),
+            Position = new(obj.transform),
+            SiblingIdx = WorldDumperPlugin.LogGameObjectIds.Value ? obj.transform.GetSiblingIndex() : 0,
         };
     }
 

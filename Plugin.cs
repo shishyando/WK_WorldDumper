@@ -4,6 +4,10 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System;
 using System.IO;
+using System.IO.Ports;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using WorldDumper.Jsonl;
 
 namespace WorldDumper;
 
@@ -13,36 +17,75 @@ public class WorldDumperPlugin : BaseUnityPlugin
 
     internal static WorldDumperPlugin Instance;
     internal static ManualLogSource Beep;
-    private Harmony Harmony;
+    private Harmony _harmony;
+    public static bool Playing = false;
 
     // Config
     public static ConfigEntry<string> LogsDir;
+    public static ConfigEntry<bool> LogGameObjectIds;
 
     private void Awake()
     {
         Instance = this;
         Beep = Logger;
         LogsDir = Config.Bind("Logging", "Directory", Path.Combine(Paths.BepInExRootPath, $"{MyPluginInfo.PLUGIN_NAME}Output"), $"Directory for {MyPluginInfo.PLUGIN_NAME} logs");
+        LogGameObjectIds = Config.Bind("Logging", "LogGameObjectIds", false, $"If true, {MyPluginInfo.PLUGIN_NAME} will dump GameObject.InstanceID and GameObject.SiblingIdx for game object formats");
+
+        _harmony = new(MyPluginInfo.PLUGIN_GUID);
+        Beep.LogInfo($"{MyPluginInfo.PLUGIN_GUID} is loaded");
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene s, LoadSceneMode m)
+    {
+        Beep.LogInfo($"OnSceneLoaded: {s.name} (mode: {m})");
+        if (s.name == "Game-Main") Start();
+    }
+    
+    public void OnSceneUnloaded(Scene s)
+    {
+        Beep.LogInfo($"OnSceneUnloaded: {s.name}");
+        if (s.name == "Game-Main") Stop();
+    }
+
+    public static void Start()
+    {
+        if (TryToRotateLogs())
+        {
+            Playing = true;
+            Instance._harmony.PatchAll();
+        }
+    }
+
+    public static void Stop()
+    {
+        Playing = false;
+        Instance._harmony.UnpatchSelf();
+        Jsonler.DisposeWriters();
+    }
+
+    public static bool TryToRotateLogs()
+    {
+        Jsonler.DisposeWriters();
         try
         {
-            string old = LogsDir.Value + "_old";
-            if (Directory.Exists(old)) Directory.Delete(old, true);
-            if (Directory.Exists(LogsDir.Value)) Directory.Move(LogsDir.Value, old);
-            Directory.CreateDirectory(LogsDir.Value);
+            string prev = Path.Combine(Paths.BepInExRootPath, LogsDir.Value + "_prev");
+            if (Directory.Exists(prev)) Directory.Delete(prev, true);
+            if (!Directory.Exists(prev)) Directory.CreateDirectory(prev);
+            DirectoryInfo cur = Directory.CreateDirectory(LogsDir.Value);
+            foreach (FileInfo f in cur.EnumerateFiles())
+            {
+                f.MoveTo(Path.Combine(prev, f.Name));
+            }
+            return true;
         }
         catch (Exception e)
         {
             Beep.LogError($"Recreating logs directory failed: {e}");
-            return;
+            Stop();
+            return false;
         }
-
-        Harmony = new(MyPluginInfo.PLUGIN_GUID);
-        Harmony.PatchAll();
-        // Harmony.PatchAll(typeof(Patches.Item_Object_Start_Patcher));
-        // Harmony.PatchAll(typeof(Patches.M_Level_OnSpawn_Patcher));
-        // Harmony.PatchAll(typeof(Patches.UT_SpawnChance_Start_Patcher));
-        // Harmony.PatchAll(typeof(Patches.UT_SPT_Spawner_Spawn_Patcher));
-        // Harmony.PatchAll(typeof(Patches.SpawnTableAsset_GetEffectiveSpawnChance_Patcher));
-        Beep.LogInfo($"{MyPluginInfo.PLUGIN_GUID} is loaded");
     }
+
 }

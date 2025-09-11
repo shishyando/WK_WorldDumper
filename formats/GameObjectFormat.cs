@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace WorldDumper.Formats;
 
@@ -11,6 +10,6 @@ public class GameObjectFormat
     public bool Active;
     public string ParentName;
     public string Path;
-    public Vector3 Position;
+    public Position3 Position;
     public int SiblingIdx;
 }

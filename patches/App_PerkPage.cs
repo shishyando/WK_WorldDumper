@@ -11,7 +11,6 @@ public static class App_PerkPage_Start_Patcher
     [HarmonyPostfix]
     public static void Dump(App_PerkPage __instance)
     {
-        try { PerkPageDumper.Dump(__instance, "App_PerkPage_Start_"); } catch (Exception e) { WorldDumperPlugin.Beep.LogError($"App_PerkPage_Start_Patcher: {e}"); }
-
+        if (WorldDumperPlugin.Playing) PerkPageDumper.Dump(__instance, "App_PerkPage_Start");
     }
 }

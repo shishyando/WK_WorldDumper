@@ -1,3 +1,4 @@
+using System;
 using WorldDumper.Formats;
 namespace WorldDumper.Dumpers;
 
@@ -7,10 +8,13 @@ public static class GameEntityDumper
     {
         GameEntityFormat f = new()
         {
-            Data = e.GetEntitySaveData(),
+            EntityID = e.entityPrefabID,
+            EntityType = e.objectType,
+            Tag = e.tag,
+            Position = new(e.gameObject.transform),
             Level = LevelDumper.LevelOf(e.transform),
             GameObject = GameObjectDumper.Get(e.gameObject),
         };
-        Jsonl.Jsonler.Dump(f, prefix);
+        Jsonl.Jsonler.Dump(f, $"{prefix}_{e.tag}");
     }
 }
