@@ -92,7 +92,7 @@ Log everything in White Knuckle world.
 ### Level
 ```json
 {
-    "InstanceId": -48666,
+    "InstanceId": 0,
     "LevelName": "M1_Silos_Air_01",
     "RegionName": "silos",
     "SubregionName": "Ventilation",

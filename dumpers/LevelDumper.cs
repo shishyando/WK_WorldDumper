@@ -16,7 +16,7 @@ public static class LevelDumper
     public static LevelFormat Get(M_Level lvl) {
         return new()
         {
-            InstanceId = lvl.GetInstanceID(),
+            InstanceId = WorldDumperPlugin.LogGameObjectIds.Value ? lvl.GetInstanceID() : 0,
             LevelName = lvl.levelName,
             IsLastLevel = lvl.lastLevel,
             RegionName = lvl.region?.regionName ?? "no_region_name",
