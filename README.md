@@ -1,67 +1,17 @@
 # WorldDumper
 
 Log everything in White Knuckle world.
-
 ## Table of Contents
 
-- [Vending Machine](#vending-machine)
 - [Denizen](#denizen)
-- [Pickupable](#pickupable)
+- [Event](#event)
 - [Item](#item)
 - [Level](#level)
-- [Event](#event)
 - [Perk](#perk)
+- [Pickupable](#pickupable)
+- [Vending Machine](#vending-machine)
 
 ## Examples
-
-### Vending Machine
-```json
-{
-    "VendorId": "vend01",
-    "PurchaseArray": [
-        {
-            "PrefabName": "Item_RebarRope",
-            "Chance": 1.0,
-            "Price": 5
-        },
-        {
-            "PrefabName": "Item_Flaregun",
-            "Chance": 0.5,
-            "Price": 8
-        },
-        {
-            "PrefabName": "Item_Beans",
-            "Chance": 1.0,
-            "Price": 2
-        }
-    ],
-    "LocalSeed": 8992,
-    "RandomGeneration": true,
-    "Level": {
-        "InstanceId": -57772,
-        "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
-        "RegionName": "pipeworks",
-        "SubregionName": "Ventilation",
-        "IsLastLevel": false,
-        "Flipped": false,
-        "Seed": 8992,
-        "Active": true
-    },
-    "GameObject": {
-        "InstanceId": 0,
-        "Name": "Prop_VendingMachine.01",
-        "Active": true,
-        "ParentName": "Props",
-        "Path": "Campaign-root/World_Root(Clone)/M1_Campaign_Transition_Silo_To_Pipeworks_01(Clone)/Entities (1)/Props/Prop_VendingMachine.01",
-        "Position": {
-            "x": -5.86,
-            "y": 656.067139,
-            "z": 10.8999109
-        },
-        "SiblingIdx": 0
-    }
-}
-```
 
 ### Denizen
 ```json
@@ -100,40 +50,10 @@ Log everything in White Knuckle world.
 }
 ```
 
-### Pickupable
+### Event
 ```json
 {
-    "EntityID": "Prop_Radio",
-    "EntityType": "entity",
-    "Tag": "Pickupable",
-    "Position": {
-        "x": -4.360544,
-        "y": 661.131958,
-        "z": 32.9430847
-    },
-    "Level": {
-        "InstanceId": -57772,
-        "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
-        "RegionName": "pipeworks",
-        "SubregionName": "Ventilation",
-        "IsLastLevel": false,
-        "Flipped": false,
-        "Seed": 8992,
-        "Active": true
-    },
-    "GameObject": {
-        "InstanceId": 0,
-        "Name": "Prop_Radio",
-        "Active": true,
-        "ParentName": "Props",
-        "Path": "Campaign-root/World_Root(Clone)/M1_Campaign_Transition_Silo_To_Pipeworks_01(Clone)/Entities (1)/Props/Prop_Radio",
-        "Position": {
-            "x": -4.360544,
-            "y": 661.131958,
-            "z": 32.9430847
-        },
-        "SiblingIdx": 0
-    }
+    "a": "Logged when happen"
 }
 ```
 
@@ -183,8 +103,95 @@ Log everything in White Knuckle world.
 }
 ```
 
-### Event
-Logged when happen
-
 ### Perk
-Perks are generated when you access the computer page with perks
+```json
+{
+    "a": "Perks are generated when you access the computer page with perks"
+}
+```
+
+### Pickupable
+```json
+{
+    "EntityID": "Prop_Radio",
+    "EntityType": "entity",
+    "Tag": "Pickupable",
+    "Position": {
+        "x": -4.360544,
+        "y": 661.131958,
+        "z": 32.9430847
+    },
+    "Level": {
+        "InstanceId": -57772,
+        "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
+        "RegionName": "pipeworks",
+        "SubregionName": "Ventilation",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 8992,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Prop_Radio",
+        "Active": true,
+        "ParentName": "Props",
+        "Path": "Campaign-root/World_Root(Clone)/M1_Campaign_Transition_Silo_To_Pipeworks_01(Clone)/Entities (1)/Props/Prop_Radio",
+        "Position": {
+            "x": -4.360544,
+            "y": 661.131958,
+            "z": 32.9430847
+        },
+        "SiblingIdx": 0
+    }
+}
+```
+
+### Vending Machine
+```json
+{
+    "VendorId": "vend01",
+    "PurchaseArray": [
+        {
+            "PrefabName": "Item_RebarRope",
+            "Chance": 1.0,
+            "Price": 5
+        },
+        {
+            "PrefabName": "Item_Flaregun",
+            "Chance": 0.5,
+            "Price": 8
+        },
+        {
+            "PrefabName": "Item_Beans",
+            "Chance": 1.0,
+            "Price": 2
+        }
+    ],
+    "LocalSeed": 8992,
+    "RandomGeneration": true,
+    "Level": {
+        "InstanceId": -57772,
+        "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
+        "RegionName": "pipeworks",
+        "SubregionName": "Ventilation",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 8992,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Prop_VendingMachine.01",
+        "Active": true,
+        "ParentName": "Props",
+        "Path": "Campaign-root/World_Root(Clone)/M1_Campaign_Transition_Silo_To_Pipeworks_01(Clone)/Entities (1)/Props/Prop_VendingMachine.01",
+        "Position": {
+            "x": -5.86,
+            "y": 656.067139,
+            "z": 10.8999109
+        },
+        "SiblingIdx": 0
+    }
+}
+```

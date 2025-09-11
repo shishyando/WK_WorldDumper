@@ -47,6 +47,10 @@
     </Reference>
   </ItemGroup>
 
+  <Target Name="GenerateReadme" BeforeTargets="Build">
+    <Exec Command='python "$(ProjectDir)generate_readme.py"' WorkingDirectory="$(ProjectDir)" />
+  </Target>
+
   <Target Name="GenerateManifest" AfterTargets="Build">
     <ItemGroup>
       <_Manifest Include="{" />
