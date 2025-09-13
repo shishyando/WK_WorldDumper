@@ -1,7 +1,7 @@
 {
 "name": "WorldDumper",
-"version_number": "0.3.2",
+"version_number": "0.3.3",
 "website_url": "https://github.com/shishyando/WK_WorldDumper",
-"description": "More console commands for White Knuckle",
+"description": "Log everything in White Knuckle world.",
 "dependencies": ["BepInEx-BepInExPack-5.4.2100"]
 }
