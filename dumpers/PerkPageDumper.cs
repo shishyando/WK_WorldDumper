@@ -16,7 +16,6 @@ public static class PerkPageDumper
             PerkPageType = nameof(page.perkPageType),
             PerkCards = cardsRef(page).ConvertAll(ConvertPerkCard),
             Id = idRef(page),
-            Level = LevelDumper.LevelOf(page.transform),
             GameObject = GameObjectDumper.Get(page.gameObject)
         };
         Jsonl.Jsonler.Dump(f, prefix);
@@ -35,7 +34,6 @@ public static class PerkPageDumper
         return new()
         {
             Title = perk.title,
-            Id = perk.id,
             Description = perk.description,
             Cost = perk.cost,
             SpawnPool = nameof(perk.spawnPool),

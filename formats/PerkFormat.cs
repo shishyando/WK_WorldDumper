@@ -10,7 +10,6 @@ public class PerkPageFormat
 	public string PerkPageType;
 	public List<PerkCardFormat> PerkCards;
 	public string Id;
-	public LevelFormat Level;
 	public GameObjectFormat GameObject;
 }
 
@@ -25,7 +24,6 @@ public class PerkCardFormat
 public class PerkFormat
 {
 	public string Title;
-	public string Id;
 	public string Description;
 	public int Cost;
 	public string SpawnPool;

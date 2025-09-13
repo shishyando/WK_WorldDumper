@@ -106,7 +106,42 @@ Log everything in White Knuckle world.
 ### Perk
 ```json
 {
-    "a": "Perks are generated when you access the computer page with perks"
+    "PerkPageType": "perkPageType",
+    "PerkCards": [
+        {
+            "Name": "Perk_Card(Clone)",
+            "PerkInfo": {
+                "Title": "Teleporter Malfunction",
+                "Id": "Perk_U_TX_TeleporterMalfunction",
+                "Description": "Trapped in the moment between your birth and your death.",
+                "Cost": 0,
+                "SpawnPool": "spawnPool"
+            }
+        },
+        {
+            "Name": "Perk_Card(Clone)",
+            "PerkInfo": {
+                "Title": "Disk Jockey",
+                "Id": "Perk_U_T2_DiskJockey",
+                "Description": "We thought you might need the help.",
+                "Cost": 0,
+                "SpawnPool": "spawnPool"
+            }
+        }
+    ],
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Experimental Perks",
+        "Active": true,
+        "ParentName": "Apps",
+        "Path": "OSManager_SingleApp(Clone)/OS/Computer Canvas/OS Panel/OS_Interactive_Group/Apps/Experimental Perks",
+        "Position": {
+            "x": 400.0,
+            "y": 225.0,
+            "z": 0.0
+        },
+        "SiblingIdx": 0
+    }
 }
 ```
 
