@@ -4,8 +4,6 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System;
 using System.IO;
-using System.IO.Ports;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using WorldDumper.Jsonl;
 
@@ -42,7 +40,7 @@ public class WorldDumperPlugin : BaseUnityPlugin
         Beep.LogInfo($"OnSceneLoaded: {s.name} (mode: {m})");
         if (s.name == "Game-Main") Start();
     }
-    
+
     public void OnSceneUnloaded(Scene s)
     {
         Beep.LogInfo($"OnSceneUnloaded: {s.name}");
