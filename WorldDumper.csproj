@@ -4,7 +4,7 @@
     <TargetFramework>net48</TargetFramework>
     <BepInExPluginGuid>shishyando.WK.WorldDumper</BepInExPluginGuid>
     <BepInExPluginName>WorldDumper</BepInExPluginName>
-    <Version>0.3.3</Version>
+    <Version>0.4.0</Version>
     <Description>Log everything in White Knuckle world.</Description>
     <PluginUrl>https://github.com/shishyando/WK_WorldDumper</PluginUrl>
     <DependenciesJson>["BepInEx-BepInExPack-5.4.2100"]</DependenciesJson>
