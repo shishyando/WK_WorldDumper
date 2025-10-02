@@ -1,0 +1,14 @@
+{
+    "Comment": "most things that are spawned randomly on the ground",
+    "InstanceId": 0,
+    "Name": "Handhold-Basic",
+    "Active": true,
+    "ParentName": "Level-Handhold-Root",
+    "Path": "Campaign-root/World_Root(Clone)/M1_Silos_Storage_05(Clone)/M1_Basic_05/Level_Hull/Level-Handhold-Root/Handhold-Basic",
+    "Position": {
+        "x": -1.76303768,
+        "y": 26.3244343,
+        "z": 6.310929
+    },
+    "SiblingIdx": 0
+}

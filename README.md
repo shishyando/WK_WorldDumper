@@ -5,10 +5,14 @@ Log everything in White Knuckle world.
 
 - [Denizen](#denizen)
 - [Event](#event)
-- [Item](#item)
+- [Item Object](#item-object)
 - [Level](#level)
+- [Object Spawner](#object-spawner)
 - [Perk](#perk)
 - [Pickupable](#pickupable)
+- [Platform](#platform)
+- [Spawn Chance](#spawn-chance)
+- [Untagged](#untagged)
 - [Vending Machine](#vending-machine)
 
 ## Examples
@@ -53,36 +57,53 @@ Log everything in White Knuckle world.
 ### Event
 ```json
 {
-    "a": "Logged when happen"
+    "Id": "SessionEvent_Abyss_Nuke",
+    "StartCheck": "startCheck",
+    "EventModules": [
+        "Spawn Nuke",
+        "",
+        "stopaftertime"
+    ],
+    "StartLevel": {
+        "InstanceId": 0,
+        "LevelName": "M4_Abyss_Garden_01",
+        "RegionName": "abyss",
+        "SubregionName": "hanging-garden",
+        "IsLastLevel": false,
+        "Flipped": true,
+        "Seed": 4419984,
+        "Active": true
+    }
 }
 ```
 
-### Item
+### Item Object
 ```json
 {
-    "PrefabName": "Item_RebarRope",
+    "Comment": "a bit different from pickupable entity, you may find it useful",
+    "PrefabName": "Item_Artifact_Rebar_Return",
     "ItemName": "Rebar",
     "ItemTag": "rebar",
     "Level": {
         "InstanceId": 0,
-        "LevelName": "M1_Silos_Storage_11",
-        "RegionName": "silos",
-        "SubregionName": "Deep Storage",
+        "LevelName": null,
+        "RegionName": null,
+        "SubregionName": null,
         "IsLastLevel": false,
         "Flipped": false,
-        "Seed": 1999,
-        "Active": true
+        "Seed": 0,
+        "Active": false
     },
     "GameObject": {
         "InstanceId": 0,
-        "Name": "Item_RebarRope",
+        "Name": "Item_Artifact_Rebar_Return(Clone)",
         "Active": true,
-        "ParentName": "Items",
-        "Path": "Campaign-root/World_Root(Clone)/M1_Silos_Storage_11(Clone)/Entities (1)/Items/Item_RebarRope",
+        "ParentName": "<root>",
+        "Path": "Item_Artifact_Rebar_Return(Clone)",
         "Position": {
-            "x": 9.245653,
-            "y": 93.28429,
-            "z": -2.48516417
+            "x": 101.855057,
+            "y": 2193.49658,
+            "z": 197.684357
         },
         "SiblingIdx": 0
     }
@@ -100,6 +121,23 @@ Log everything in White Knuckle world.
     "Flipped": true,
     "Seed": 5995,
     "Active": true
+}
+```
+
+### Object Spawner
+```json
+{
+    "InstanceId": 0,
+    "Name": "UT_ExplosionSpawner.01",
+    "Active": true,
+    "ParentName": "Explosions",
+    "Path": "Campaign-root/World_Root(Clone)/M3_Habitation_Lab_Ending(Clone)/Rho/Prop_Rho_ArtifactDevice_01/Explosions/UT_ExplosionSpawner.01",
+    "Position": {
+        "x": 106.533989,
+        "y": 2195.58765,
+        "z": 199.9173
+    },
+    "SiblingIdx": 0
 }
 ```
 
@@ -176,6 +214,98 @@ Log everything in White Knuckle world.
             "x": -4.360544,
             "y": 661.131958,
             "z": 32.9430847
+        },
+        "SiblingIdx": 0
+    }
+}
+```
+
+### Platform
+```json
+{
+    "EntityID": "Denizen_Gasbag",
+    "EntityType": "gasbag",
+    "Tag": "Platform",
+    "Position": {
+        "x": 64.83247,
+        "y": 998.0472,
+        "z": 121.786179
+    },
+    "Level": {
+        "InstanceId": 0,
+        "LevelName": "M2_Pipeworks_Waste_01",
+        "RegionName": "pipeworks",
+        "SubregionName": "Waste Heap",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 4428974,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Denizen_Gasbag.02",
+        "Active": true,
+        "ParentName": "Entities",
+        "Path": "Campaign-root/World_Root(Clone)/M2_Pipeworks_Waste_01(Clone)/Entities/Denizen_Gasbag.02",
+        "Position": {
+            "x": 64.83247,
+            "y": 998.0472,
+            "z": 121.786179
+        },
+        "SiblingIdx": 0
+    }
+}
+```
+
+### Spawn Chance
+```json
+{
+    "Comment": "most things that are spawned randomly on the ground",
+    "InstanceId": 0,
+    "Name": "Handhold-Basic",
+    "Active": true,
+    "ParentName": "Level-Handhold-Root",
+    "Path": "Campaign-root/World_Root(Clone)/M1_Silos_Storage_05(Clone)/M1_Basic_05/Level_Hull/Level-Handhold-Root/Handhold-Basic",
+    "Position": {
+        "x": -1.76303768,
+        "y": 26.3244343,
+        "z": 6.310929
+    },
+    "SiblingIdx": 0
+}
+```
+
+### Untagged
+```json
+{
+    "EntityID": "Prop_FlareCrate_01",
+    "EntityType": "entity",
+    "Tag": "Untagged",
+    "Position": {
+        "x": 130.611588,
+        "y": 2126.386,
+        "z": -116.402061
+    },
+    "Level": {
+        "InstanceId": 0,
+        "LevelName": "M4_Abyss_Transit_05",
+        "RegionName": "abyss",
+        "SubregionName": "transit-scaffolds",
+        "IsLastLevel": false,
+        "Flipped": true,
+        "Seed": 4415988,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Prop_FlareCrate_01(Clone)",
+        "Active": true,
+        "ParentName": "Spawn_Prop_FlareCrate_01",
+        "Path": "Campaign-root/World_Root(Clone)/M4_Abyss_Transit_05(Clone)/Entities/Items/Spawn_Prop_FlareCrate_01/Prop_FlareCrate_01(Clone)",
+        "Position": {
+            "x": 130.611588,
+            "y": 2126.386,
+            "z": -116.402061
         },
         "SiblingIdx": 0
     }

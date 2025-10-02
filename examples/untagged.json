@@ -1,0 +1,33 @@
+{
+    "EntityID": "Prop_FlareCrate_01",
+    "EntityType": "entity",
+    "Tag": "Untagged",
+    "Position": {
+        "x": 130.611588,
+        "y": 2126.386,
+        "z": -116.402061
+    },
+    "Level": {
+        "InstanceId": 0,
+        "LevelName": "M4_Abyss_Transit_05",
+        "RegionName": "abyss",
+        "SubregionName": "transit-scaffolds",
+        "IsLastLevel": false,
+        "Flipped": true,
+        "Seed": 4415988,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Prop_FlareCrate_01(Clone)",
+        "Active": true,
+        "ParentName": "Spawn_Prop_FlareCrate_01",
+        "Path": "Campaign-root/World_Root(Clone)/M4_Abyss_Transit_05(Clone)/Entities/Items/Spawn_Prop_FlareCrate_01/Prop_FlareCrate_01(Clone)",
+        "Position": {
+            "x": 130.611588,
+            "y": 2126.386,
+            "z": -116.402061
+        },
+        "SiblingIdx": 0
+    }
+}

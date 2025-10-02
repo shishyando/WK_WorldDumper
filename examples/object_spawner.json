@@ -1,0 +1,13 @@
+{
+    "InstanceId": 0,
+    "Name": "UT_ExplosionSpawner.01",
+    "Active": true,
+    "ParentName": "Explosions",
+    "Path": "Campaign-root/World_Root(Clone)/M3_Habitation_Lab_Ending(Clone)/Rho/Prop_Rho_ArtifactDevice_01/Explosions/UT_ExplosionSpawner.01",
+    "Position": {
+        "x": 106.533989,
+        "y": 2195.58765,
+        "z": 199.9173
+    },
+    "SiblingIdx": 0
+}

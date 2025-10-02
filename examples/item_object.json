@@ -1,0 +1,29 @@
+{
+    "Comment": "a bit different from pickupable entity, you may find it useful",
+    "PrefabName": "Item_Artifact_Rebar_Return",
+    "ItemName": "Rebar",
+    "ItemTag": "rebar",
+    "Level": {
+        "InstanceId": 0,
+        "LevelName": null,
+        "RegionName": null,
+        "SubregionName": null,
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 0,
+        "Active": false
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Item_Artifact_Rebar_Return(Clone)",
+        "Active": true,
+        "ParentName": "<root>",
+        "Path": "Item_Artifact_Rebar_Return(Clone)",
+        "Position": {
+            "x": 101.855057,
+            "y": 2193.49658,
+            "z": 197.684357
+        },
+        "SiblingIdx": 0
+    }
+}
