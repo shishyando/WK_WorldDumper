@@ -3,6 +3,7 @@
 Log everything in White Knuckle world. Writes .jsonl files with all events, entites, levels, etc. Keeps logs for the last two runs to diff them.
 ## Table of Contents
 
+- [Artifact](#artifact)
 - [Denizen](#denizen)
 - [Event](#event)
 - [Item Object](#item-object)
@@ -16,6 +17,38 @@ Log everything in White Knuckle world. Writes .jsonl files with all events, enti
 - [Vending Machine](#vending-machine)
 
 ## Examples
+
+### Artifact
+```json
+{
+    "PrefabName": "Item_Artifact_Translocator",
+    "ItemName": "Translocator",
+    "ItemTag": "",
+    "Level": {
+        "InstanceId": 0,
+        "LevelName": "M3_Habitation_Lab_Ending",
+        "RegionName": "abyss",
+        "SubregionName": "Transit Scaffolds",
+        "IsLastLevel": false,
+        "Flipped": false,
+        "Seed": 3775852,
+        "Active": true
+    },
+    "GameObject": {
+        "InstanceId": 0,
+        "Name": "Item_Artifact_Translocator(Clone)",
+        "Active": true,
+        "ParentName": "<root>",
+        "Path": "Item_Artifact_Translocator(Clone)",
+        "Position": {
+            "x": -39.9762459,
+            "y": 2126.67,
+            "z": 151.845428
+        },
+        "SiblingIdx": 0
+    }
+}
+```
 
 ### Denizen
 ```json
