@@ -3,19 +3,20 @@ namespace WorldDumper.Dumpers;
 
 public static class ItemObjectDumper
 {
-    public static void Dump(Item_Object obj, string prefix)
+    public static void Dump(Item_Object obj, string prefix, UnityEngine.Transform customTr = null, bool dumpGameObject = true)
     {
-        Jsonl.Jsonler.Dump(Get(obj), prefix);
+        Jsonl.Jsonler.Dump(FormatItemObject(obj, customTr, dumpGameObject), prefix);
     }
 
-    public static ItemObjectFormat Get(Item_Object it)
+    public static ItemObjectFormat FormatItemObject(Item_Object it, UnityEngine.Transform customTr = null, bool dumpGameObject = false)
     {
-        return new() {
+        return new()
+        {
             ItemName = it.itemData.itemName,
             ItemTag = it.itemData.itemTag,
             PrefabName = it.itemData.prefabName,
-            GameObject = GameObjectDumper.Get(it.gameObject),
-            Level = LevelDumper.LevelOf(it.transform)
+            GameObject = dumpGameObject ? GameObjectDumper.FormatGameObject(it.gameObject) : null,
+            Level = LevelDumper.FormatLevelOf(customTr) ?? LevelDumper.FormatLevelOf(it.transform) ?? null,
         };
     }
 }

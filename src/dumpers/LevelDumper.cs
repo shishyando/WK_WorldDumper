@@ -10,10 +10,10 @@ public static class LevelDumper
 
     public static void Dump(M_Level lvl, string prefix)
     {
-        Jsonl.Jsonler.Dump(Get(lvl), prefix);
+        Jsonl.Jsonler.Dump(FormatLevel(lvl), prefix);
     }
 
-    public static LevelFormat Get(M_Level lvl) {
+    public static LevelFormat FormatLevel(M_Level lvl) {
         return new()
         {
             InstanceId = WorldDumperPlugin.LogGameObjectIds.Value ? lvl.GetInstanceID() : 0,
@@ -27,10 +27,15 @@ public static class LevelDumper
         };
     }
 
-    public static LevelFormat LevelOf(Transform tr)
+    public static LevelFormat FormatLevelOf(Transform tr)
     {
-        if (tr == null) return new();
-        M_Level parent = tr.GetComponentInParent<M_Level>(true);
-        return parent != null ? Get(parent) : new();
+        M_Level parent = LevelOf(tr);
+        return parent ? FormatLevel(parent) : null;
+    }
+
+    public static M_Level LevelOf(Transform tr)
+    {
+        if (tr == null) return null;
+        return tr.GetComponentInParent<M_Level>(true);
     }
 }

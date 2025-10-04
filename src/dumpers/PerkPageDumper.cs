@@ -7,7 +7,6 @@ namespace WorldDumper.Dumpers;
 public static class PerkPageDumper
 {
     public static readonly AccessTools.FieldRef<App_PerkPage, List<App_PerkPage_Card>> cardsRef = AccessTools.FieldRefAccess<App_PerkPage, List<App_PerkPage_Card>>("cards");
-    public static readonly AccessTools.FieldRef<App_PerkPage, string> idRef = AccessTools.FieldRefAccess<App_PerkPage, string>("id");
 
     public static void Dump(App_PerkPage page, string prefix)
     {
@@ -15,8 +14,7 @@ public static class PerkPageDumper
         {
             PerkPageType = nameof(page.perkPageType),
             PerkCards = cardsRef(page).ConvertAll(ConvertPerkCard),
-            Id = idRef(page),
-            GameObject = GameObjectDumper.Get(page.gameObject)
+            GameObject = GameObjectDumper.FormatGameObject(page.gameObject)
         };
         Jsonl.Jsonler.Dump(f, prefix);
     }
@@ -26,15 +24,15 @@ public static class PerkPageDumper
         return new()
         {
             Name = card.name,
-            PerkInfo = GetPerkInfo(card.perk),
+            PerkInfo = FormatPerk(card.perk),
         };
     }
 
-    public static PerkFormat GetPerkInfo(Perk perk) {
+    public static PerkFormat FormatPerk(Perk perk) {
         return new()
         {
-            Title = perk.title,
-            Description = perk.description,
+            Title = perk.GetTitle(),
+            Description = perk.GetDescription(),
             Cost = perk.cost,
             SpawnPool = nameof(perk.spawnPool),
         };

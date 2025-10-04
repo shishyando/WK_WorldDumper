@@ -18,8 +18,8 @@ public static class VendingMachineDumper
             PurchaseArray = Array.ConvertAll(vendo.buttons, GetPurchase),
             LocalSeed = localSeedRef(vendo),
             RandomGeneration = vendo.randomGeneration,
-            Level = LevelDumper.LevelOf(vendo.transform),
-            GameObject = GameObjectDumper.Get(vendo.gameObject),
+            Level = LevelDumper.FormatLevelOf(vendo.transform),
+            GameObject = GameObjectDumper.FormatGameObject(vendo.gameObject),
         };
         Jsonl.Jsonler.Dump(f, prefix);
     }

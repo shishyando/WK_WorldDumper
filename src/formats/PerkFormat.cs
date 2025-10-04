@@ -9,7 +9,6 @@ public class PerkPageFormat
 {
 	public string PerkPageType;
 	public List<PerkCardFormat> PerkCards;
-	public string Id;
 	public GameObjectFormat GameObject;
 }
 

@@ -12,8 +12,8 @@ public static class GameEntityDumper
             EntityType = e.objectType,
             Tag = e.tag,
             Position = new(e.gameObject.transform),
-            Level = LevelDumper.LevelOf(e.transform),
-            GameObject = GameObjectDumper.Get(e.gameObject),
+            Level = LevelDumper.FormatLevelOf(e.transform),
+            GameObject = GameObjectDumper.FormatGameObject(e.gameObject),
         };
         Jsonl.Jsonler.Dump(f, $"{prefix}_{e.tag}");
     }

@@ -7,10 +7,10 @@ public static class GameObjectDumper
 {
     public static void Dump(GameObject obj, string prefix)
     {
-        Jsonl.Jsonler.Dump(Get(obj), prefix);
+        Jsonl.Jsonler.Dump(FormatGameObject(obj), prefix);
     }
 
-    public static GameObjectFormat Get(GameObject obj)
+    public static GameObjectFormat FormatGameObject(GameObject obj)
     {
         return new()
         {

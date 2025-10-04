@@ -12,7 +12,7 @@ public static class SessionEventDumper
             Id = e.id,
             StartCheck = nameof(e.startCheck),
             EventModules = e.modules.ConvertAll(x => { return x.name; }),
-            StartLevel = LevelDumper.Get(startLevelRef(e)),
+            StartLevel = LevelDumper.FormatLevel(startLevelRef(e)),
         };
         Jsonl.Jsonler.Dump(f, prefix);
     }
