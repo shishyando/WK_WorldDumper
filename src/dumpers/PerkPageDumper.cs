@@ -8,13 +8,14 @@ public static class PerkPageDumper
 {
     public static readonly AccessTools.FieldRef<App_PerkPage, List<App_PerkPage_Card>> cardsRef = AccessTools.FieldRefAccess<App_PerkPage, List<App_PerkPage_Card>>("cards");
 
-    public static void Dump(App_PerkPage page, string prefix)
+    public static void Dump(App_PerkPage page, string prefix, bool refresh)
     {
         PerkPageFormat f = new()
         {
             PerkPageType = nameof(page.perkPageType),
             PerkCards = cardsRef(page).ConvertAll(ConvertPerkCard),
-            GameObject = GameObjectDumper.FormatGameObject(page.gameObject)
+            GameObject = GameObjectDumper.FormatGameObject(page.gameObject),
+            AfterRefresh = refresh,
         };
         Jsonl.Jsonler.Dump(f, prefix);
     }
@@ -32,7 +33,8 @@ public static class PerkPageDumper
         return new()
         {
             Title = perk.GetTitle(),
-            Description = perk.GetDescription(),
+            Description = perk.GetDescription(includeFlavor: false),
+            Id = perk.id,
             Cost = perk.cost,
             SpawnPool = nameof(perk.spawnPool),
         };

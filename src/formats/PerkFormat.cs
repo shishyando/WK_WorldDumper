@@ -10,6 +10,7 @@ public class PerkPageFormat
 	public string PerkPageType;
 	public List<PerkCardFormat> PerkCards;
 	public GameObjectFormat GameObject;
+	public bool AfterRefresh;
 }
 
 [Serializable]
@@ -24,6 +25,7 @@ public class PerkFormat
 {
 	public string Title;
 	public string Description;
+	public string Id;
 	public int Cost;
 	public string SpawnPool;
 }

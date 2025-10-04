@@ -182,9 +182,9 @@ Log everything in White Knuckle world. Writes .jsonl files with all events, enti
         {
             "Name": "Perk_Card(Clone)",
             "PerkInfo": {
-                "Title": "Teleporter Malfunction",
-                "Id": "Perk_U_TX_TeleporterMalfunction",
-                "Description": "Trapped in the moment between your birth and your death.",
+                "Title": "Latissimus Optimization",
+                "Description": "<color=\"grey\">+ </color>Increases climbing speed by 30%",
+                "Id": "Perk_LatissimusOptimization",
                 "Cost": 0,
                 "SpawnPool": "spawnPool"
             }
@@ -192,27 +192,38 @@ Log everything in White Knuckle world. Writes .jsonl files with all events, enti
         {
             "Name": "Perk_Card(Clone)",
             "PerkInfo": {
-                "Title": "Disk Jockey",
-                "Id": "Perk_U_T2_DiskJockey",
-                "Description": "We thought you might need the help.",
+                "Title": "Armored Plating",
+                "Description": "<color=\"grey\">+ </color>Reduced grip loss from most hazards\n<color=\"grey\">+ </color>-50% to incoming damage.",
+                "Id": "Perk_ArmoredPlating",
                 "Cost": 0,
+                "SpawnPool": "spawnPool"
+            }
+        },
+        {
+            "Name": "Perk_Card(Clone)",
+            "PerkInfo": {
+                "Title": "Consumptive Reflex",
+                "Description": "<color=\"grey\">+ </color>When you would ordinarily run out of stamina, you consume a food item in your inventory.\n<color=\"grey\">+ </color>Improves maximum stamina by 30%",
+                "Id": "Perk_ConsumptiveReflex",
+                "Cost": 10,
                 "SpawnPool": "spawnPool"
             }
         }
     ],
     "GameObject": {
         "InstanceId": 0,
-        "Name": "Experimental Perks",
+        "Name": "Perks & Upgrades",
         "Active": true,
         "ParentName": "Apps",
-        "Path": "OSManager_SingleApp(Clone)/OS/Computer Canvas/OS Panel/OS_Interactive_Group/Apps/Experimental Perks",
+        "Path": "OSManager(Clone)/OS/Computer Canvas/OS Panel/OS_Interactive_Group/Apps/Perks & Upgrades",
         "Position": {
             "x": 400.0,
             "y": 225.0,
             "z": 0.0
         },
         "SiblingIdx": 0
-    }
+    },
+    "AfterRefresh": true
 }
 ```
 
