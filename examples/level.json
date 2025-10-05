@@ -1,10 +1,10 @@
 {
-    "InstanceId": 0,
-    "LevelName": "M1_Silos_Air_01",
-    "RegionName": "silos",
-    "SubregionName": "Ventilation",
+    "LevelName": "Campaign_Interlude_Pipeworks_To_Habitation_01",
+    "RegionName": "habitation",
+    "SubregionName": "Service Shaft",
+    "Seed": 19104,
     "IsLastLevel": false,
-    "Flipped": true,
-    "Seed": 5995,
-    "Active": true
+    "Flipped": false,
+    "Active": true,
+    "InstanceId": 0
 }

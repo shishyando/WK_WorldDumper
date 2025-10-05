@@ -21,18 +21,21 @@ public class WorldDumperPlugin : BaseUnityPlugin
     // Config
     public static ConfigEntry<string> LogsDir;
     public static ConfigEntry<bool> LogGameObjectIds;
+    public static ConfigEntry<bool> SortLogsAfterRun;
 
     private void Awake()
     {
         Instance = this;
         Beep = Logger;
         LogsDir = Config.Bind("Logging", "Directory", Path.Combine(Paths.BepInExRootPath, $"{MyPluginInfo.PLUGIN_NAME}Output"), $"Directory for {MyPluginInfo.PLUGIN_NAME} logs");
-        LogGameObjectIds = Config.Bind("Logging", "LogGameObjectIds", false, $"If true, {MyPluginInfo.PLUGIN_NAME} will dump GameObject.InstanceID and GameObject.SiblingIdx for game object formats");
+        LogGameObjectIds = Config.Bind("Logging", "LogGameObjectIds", false, $"If true, {MyPluginInfo.PLUGIN_NAME} will dump some unique ids (e.g. GameObject.InstanceID, GameObject.SiblingIdx) for game object formats");
+        SortLogsAfterRun = Config.Bind("Logging", "SortLogsAfterRun", false, $"If true, {MyPluginInfo.PLUGIN_NAME} will sort the logs after the run (may be useful for diffing)");
 
         _harmony = new(MyPluginInfo.PLUGIN_GUID);
         Beep.LogInfo($"{MyPluginInfo.PLUGIN_GUID} is loaded");
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Instance._harmony.PatchAll();
     }
 
     public void OnSceneLoaded(Scene s, LoadSceneMode m)
@@ -52,14 +55,12 @@ public class WorldDumperPlugin : BaseUnityPlugin
         if (TryToRotateLogs())
         {
             Playing = true;
-            Instance._harmony.PatchAll();
         }
     }
 
     public static void Stop()
     {
         Playing = false;
-        Instance._harmony.UnpatchSelf();
         Jsonler.DisposeWriters();
     }
 

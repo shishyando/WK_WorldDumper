@@ -11,6 +11,7 @@ public class PerkPageFormat
 	public List<PerkCardFormat> PerkCards;
 	public GameObjectFormat GameObject;
 	public bool AfterRefresh;
+	public int Seed;
 }
 
 [Serializable]

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
 using WorldDumper.Dumpers;
@@ -10,8 +8,8 @@ namespace WorldDumper.Patches;
 [HarmonyPatch(typeof(UT_SpawnEntity), "Spawn")]
 public static class UT_SpawnEntity_Spawn_Patcher
 {
-    [HarmonyPrefix]
-    public static void Dump(UT_SpawnEntity __instance)
+    [HarmonyPriority(Priority.Last)]
+    public static void Finalizer(UT_SpawnEntity __instance)
     {
         if (!WorldDumperPlugin.Playing) return;
         
@@ -39,8 +37,8 @@ public static class UT_SpawnEntity_Spawn_Patcher
 [HarmonyPatch(typeof(UT_SpawnEntity), "SpawnCustom")]
 public static class UT_SpawnEntity_SpawnCustom_Patcher
 {
-    [HarmonyPrefix]
-    public static void Dump(GameObject g)
+    [HarmonyPriority(Priority.Last)]
+    public static void Finalizer(GameObject g)
     {
         if (WorldDumperPlugin.Playing && g != null)
         {

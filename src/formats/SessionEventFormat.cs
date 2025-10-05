@@ -10,6 +10,4 @@ public class SessionEventFormat
     public string StartCheck;
     public List<string> EventModules;
     public LevelFormat StartLevel;
-    // public SubregionFormat StartSubregion;
-    // public RegionFormat StartRegion;
 }

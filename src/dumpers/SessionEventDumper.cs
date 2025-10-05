@@ -10,7 +10,7 @@ public static class SessionEventDumper
         SessionEventFormat f = new()
         {
             Id = e.id,
-            StartCheck = nameof(e.startCheck),
+            StartCheck = e.startCheck.ToString(),
             EventModules = e.modules.ConvertAll(x => { return x.name; }),
             StartLevel = LevelDumper.FormatLevel(startLevelRef(e)),
         };

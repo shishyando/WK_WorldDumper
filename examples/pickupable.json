@@ -1,33 +1,24 @@
 {
-    "EntityID": "Prop_Radio",
+    "EntityID": "Item_Artifact_Rebar_Return",
+    "GameObject": {
+        "Name": "Item_Artifact_Rebar_Return(Clone)",
+        "ParentName": "<root>",
+        "Path": "Item_Artifact_Rebar_Return(Clone)",
+        "Position": {
+            "x": -96.08035,
+            "y": 2235.12573,
+            "z": 82.06044
+        },
+        "Active": true,
+        "InstanceId": 0,
+        "SiblingIdx": 0
+    },
     "EntityType": "entity",
     "Tag": "Pickupable",
     "Position": {
-        "x": -4.360544,
-        "y": 661.131958,
-        "z": 32.9430847
+        "x": -96.08035,
+        "y": 2235.12573,
+        "z": 82.06044
     },
-    "Level": {
-        "InstanceId": 0,
-        "LevelName": "M1_Campaign_Transition_Silo_To_Pipeworks_01",
-        "RegionName": "pipeworks",
-        "SubregionName": "Ventilation",
-        "IsLastLevel": false,
-        "Flipped": false,
-        "Seed": 8992,
-        "Active": true
-    },
-    "GameObject": {
-        "InstanceId": 0,
-        "Name": "Prop_Radio",
-        "Active": true,
-        "ParentName": "Props",
-        "Path": "Campaign-root/World_Root(Clone)/M1_Campaign_Transition_Silo_To_Pipeworks_01(Clone)/Entities (1)/Props/Prop_Radio",
-        "Position": {
-            "x": -4.360544,
-            "y": 661.131958,
-            "z": 32.9430847
-        },
-        "SiblingIdx": 0
-    }
+    "Level": null
 }

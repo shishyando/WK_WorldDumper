@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using HarmonyLib;
-using UnityEngine;
 using WorldDumper.Dumpers;
 
 namespace WorldDumper.Patches;
@@ -10,8 +8,8 @@ namespace WorldDumper.Patches;
 [HarmonyPatch(typeof(UT_RadiusSpawner), "Spawn")]
 public static class UT_RadiusSpawner_Spawn_Patcher
 {
-    [HarmonyPrefix]
-    public static void Dump(UT_RadiusSpawner __instance)
+    [HarmonyPriority(Priority.Last)]
+    public static void Finalizer(UT_RadiusSpawner __instance)
     {
         if (!WorldDumperPlugin.Playing) return;
         

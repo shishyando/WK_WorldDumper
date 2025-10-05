@@ -1,13 +1,13 @@
 {
-    "InstanceId": 0,
-    "Name": "UT_ExplosionSpawner.01",
-    "Active": true,
+    "Name": "UT_ExplosionSpawner",
     "ParentName": "Explosions",
-    "Path": "Campaign-root/World_Root(Clone)/M3_Habitation_Lab_Ending(Clone)/Rho/Prop_Rho_ArtifactDevice_01/Explosions/UT_ExplosionSpawner.01",
+    "Path": "Campaign-root/World_Root(Clone)/M3_Habitation_Lab_Ending(Clone)/Rho/Prop_Rho_ArtifactDevice_01/Explosions/UT_ExplosionSpawner",
     "Position": {
-        "x": 106.533989,
-        "y": 2195.58765,
-        "z": 199.9173
+        "x": -88.52034,
+        "y": 2238.142,
+        "z": 82.41657
     },
+    "Active": true,
+    "InstanceId": 0,
     "SiblingIdx": 0
 }

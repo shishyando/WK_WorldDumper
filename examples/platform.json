@@ -1,33 +1,33 @@
 {
     "EntityID": "Denizen_Gasbag",
+    "GameObject": {
+        "Name": "Denizen_Gasbag.03",
+        "ParentName": "Entities",
+        "Path": "Campaign-root/World_Root(Clone)/M2_Pipeworks_Waste_01(Clone)/Entities/Denizen_Gasbag.03",
+        "Position": {
+            "x": -172.15451,
+            "y": 812.6783,
+            "z": 95.82179
+        },
+        "Active": true,
+        "InstanceId": 0,
+        "SiblingIdx": 0
+    },
     "EntityType": "gasbag",
     "Tag": "Platform",
     "Position": {
-        "x": 64.83247,
-        "y": 998.0472,
-        "z": 121.786179
+        "x": -172.15451,
+        "y": 812.6783,
+        "z": 95.82179
     },
     "Level": {
-        "InstanceId": 0,
         "LevelName": "M2_Pipeworks_Waste_01",
         "RegionName": "pipeworks",
         "SubregionName": "Waste Heap",
+        "Seed": 15108,
         "IsLastLevel": false,
         "Flipped": false,
-        "Seed": 4428974,
-        "Active": true
-    },
-    "GameObject": {
-        "InstanceId": 0,
-        "Name": "Denizen_Gasbag.02",
         "Active": true,
-        "ParentName": "Entities",
-        "Path": "Campaign-root/World_Root(Clone)/M2_Pipeworks_Waste_01(Clone)/Entities/Denizen_Gasbag.02",
-        "Position": {
-            "x": 64.83247,
-            "y": 998.0472,
-            "z": 121.786179
-        },
-        "SiblingIdx": 0
+        "InstanceId": 0
     }
 }

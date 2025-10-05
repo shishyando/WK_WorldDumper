@@ -1,4 +1,3 @@
-using System;
 using WorldDumper.Formats;
 namespace WorldDumper.Dumpers;
 

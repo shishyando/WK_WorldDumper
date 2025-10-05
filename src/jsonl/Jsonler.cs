@@ -27,6 +27,15 @@ public static class Jsonler
         {
             if (writer.Value.IsValueCreated) writer.Value.Value.Dispose();
         }
+        if (WorldDumperPlugin.SortLogsAfterRun.Value)
+        {
+            foreach (string path in Writers.Keys)
+            {
+                var lines = File.ReadAllLines(path, Encoding.UTF8);
+                Array.Sort(lines, StringComparer.Ordinal);
+                File.WriteAllLines(path, lines, Encoding.UTF8);
+            }
+        }
         Writers.Clear();
     }
 

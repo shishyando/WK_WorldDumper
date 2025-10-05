@@ -1,6 +1,5 @@
 using System;
 using HarmonyLib;
-using UnityEngine;
 using WorldDumper.Formats;
 
 namespace WorldDumper.Dumpers;

@@ -1,19 +1,19 @@
 {
     "Id": "SessionEvent_Abyss_Nuke",
-    "StartCheck": "startCheck",
+    "StartCheck": "startOfRegion",
     "EventModules": [
         "Spawn Nuke",
         "",
         "stopaftertime"
     ],
     "StartLevel": {
-        "InstanceId": 0,
-        "LevelName": "M4_Abyss_Garden_01",
+        "LevelName": "M4_Abyss_Garden_04",
         "RegionName": "abyss",
         "SubregionName": "hanging-garden",
+        "Seed": 5119,
         "IsLastLevel": false,
-        "Flipped": true,
-        "Seed": 4419984,
-        "Active": true
+        "Flipped": false,
+        "Active": true,
+        "InstanceId": 0
     }
 }

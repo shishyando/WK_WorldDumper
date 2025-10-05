@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using HarmonyLib;
-using UnityEngine;
 using WorldDumper.Dumpers;
 
 namespace WorldDumper.Patches;
@@ -10,8 +8,8 @@ namespace WorldDumper.Patches;
 [HarmonyPatch(typeof(UT_SPT_Spawner), "Spawn")]
 public static class UT_SPT_Spawner_Spawn_Patcher
 {
-    [HarmonyPrefix]
-    public static void Dump(UT_SPT_Spawner __instance)
+    [HarmonyPriority(Priority.Last)]
+    public static void Finalizer(UT_SPT_Spawner __instance)
     {
         if (!WorldDumperPlugin.Playing) return;
         

@@ -1,41 +1,39 @@
 {
-    "PerkPageType": "perkPageType",
+    "PerkPageType": "regular",
     "PerkCards": [
         {
             "Name": "Perk_Card(Clone)",
             "PerkInfo": {
-                "Title": "Latissimus Optimization",
-                "Description": "<color=\"grey\">+ </color>Increases climbing speed by 30%",
-                "Id": "Perk_LatissimusOptimization",
+                "Title": "Velocity Augments",
+                "Description": "<color=\"grey\">+ </color>Improves Walking/Running speed by 25%\n<color=\"grey\">+ </color>Improves Climbing speed by 10%",
+                "Id": "Perk_VelocityAugments",
                 "Cost": 0,
-                "SpawnPool": "spawnPool"
+                "SpawnPool": "standard"
             }
         },
         {
             "Name": "Perk_Card(Clone)",
             "PerkInfo": {
-                "Title": "Armored Plating",
-                "Description": "<color=\"grey\">+ </color>Reduced grip loss from most hazards\n<color=\"grey\">+ </color>-50% to incoming damage.",
-                "Id": "Perk_ArmoredPlating",
+                "Title": "Portable Bank",
+                "Description": "<color=\"grey\">+ </color>Roaches are automatically banked when placed in your bag.",
+                "Id": "Perk_PortableBank",
                 "Cost": 0,
-                "SpawnPool": "spawnPool"
+                "SpawnPool": "standard"
             }
         },
         {
             "Name": "Perk_Card(Clone)",
             "PerkInfo": {
-                "Title": "Consumptive Reflex",
-                "Description": "<color=\"grey\">+ </color>When you would ordinarily run out of stamina, you consume a food item in your inventory.\n<color=\"grey\">+ </color>Improves maximum stamina by 30%",
-                "Id": "Perk_ConsumptiveReflex",
-                "Cost": 10,
-                "SpawnPool": "spawnPool"
+                "Title": "Elastic Limbs",
+                "Description": "<color=\"grey\">+ </color>Increases Reach by 50%",
+                "Id": "Perk_ElasticLimbs",
+                "Cost": 12,
+                "SpawnPool": "standard"
             }
         }
     ],
     "GameObject": {
-        "InstanceId": 0,
         "Name": "Perks & Upgrades",
-        "Active": true,
         "ParentName": "Apps",
         "Path": "OSManager(Clone)/OS/Computer Canvas/OS Panel/OS_Interactive_Group/Apps/Perks & Upgrades",
         "Position": {
@@ -43,7 +41,10 @@
             "y": 225.0,
             "z": 0.0
         },
+        "Active": true,
+        "InstanceId": 0,
         "SiblingIdx": 0
     },
-    "AfterRefresh": true
+    "AfterRefresh": true,
+    "Seed": -1
 }
